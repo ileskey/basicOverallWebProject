@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import Header from "./components/Header";
+import HomePage from "./pages/HomePage";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import ProductListPage from "./pages/ProductListPage";
+import NewsPage from "./pages/NewsPage";
 import Practice from "./pages/practice";
 import "./App.css";
 
@@ -20,19 +23,35 @@ function App() {
 
     return (
         <>
+            <Header />
             <div>
-                <a href="https://react.dev" target="_blank">
-                    <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://vite.dev" target="_blank">
-                    <img
-                        src={reactLogo}
-                        className="logo react"
-                        alt="React logo"
-                    />
-                </a>
+                <nav style={{ padding: "20px", background: "#f0f0f0" }}>
+                    <Link to="/" style={{ margin: "0 10px" }}>
+                        홈
+                    </Link>
+                    <Link to="/products" style={{ margin: "0 10px" }}>
+                        제품
+                    </Link>
+                    <Link to="/news" style={{ margin: "0 10px" }}>
+                        뉴스
+                    </Link>
+                </nav>
+                <div style={{ padding: "20px" }}>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/products" element={<ProductListPage />} />
+                        <Route
+                            path="/products/:id"
+                            element={<ProductDetailPage />}
+                        />
+                        <Route path="/news" element={<NewsPage />} />
+                        <Route
+                            path="*"
+                            element={<h1>404 - 페이지를 찾을 수 없습니다</h1>}
+                        />
+                    </Routes>
+                </div>
             </div>
-            <h1>Vite + React</h1>
             <div className="card">
                 <p>count is {count}</p>
                 <button onClick={() => setCount((count) => count + 1)}>
