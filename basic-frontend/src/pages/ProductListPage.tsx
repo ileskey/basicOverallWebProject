@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { products } from "../data/products";
-import ProductCard from "../components/ProductCard";
-function ProductListPage() {
+import { books } from "../data/books";
+import BookCard from "../components/BookCard";
+function BookListPage() {
     const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
     const filteredProducts =
         selectedCategory === "all"
-            ? products
-            : products.filter((p) => p.category === selectedCategory);
+            ? books
+            : books.filter((p) => p.category === selectedCategory);
     return (
         <div>
             <h1>제품 목록</h1>
@@ -22,12 +22,12 @@ function ProductListPage() {
                 </button>
             </div>
             <div>
-                {filteredProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                {filteredProducts.map((book) => (
+                    <BookCard key={book.id} book={book} />
                 ))}
             </div>
         </div>
     );
 }
 
-export default ProductListPage;
+export default BookListPage;

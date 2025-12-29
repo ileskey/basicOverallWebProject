@@ -1,11 +1,16 @@
-export interface Product {
+export interface Book {
     id: number;
-    name: string;
+    title: string;
+    author: string;
     price: number;
     category: string;
     image: string;
     rating: number;
     description: string;
+    published_date: string;
+    publisher: string;
+    isbn: string;
+    stock: number;
 }
 
 export interface Review {

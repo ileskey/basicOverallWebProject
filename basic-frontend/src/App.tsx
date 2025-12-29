@@ -29,7 +29,7 @@ function App() {
                     <Link to="/" style={{ margin: "0 10px" }}>
                         홈
                     </Link>
-                    <Link to="/products" style={{ margin: "0 10px" }}>
+                    <Link to="/books" style={{ margin: "0 10px" }}>
                         제품
                     </Link>
                     <Link to="/news" style={{ margin: "0 10px" }}>
@@ -39,7 +39,7 @@ function App() {
                 <div style={{ padding: "20px" }}>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
-                        <Route path="/products" element={<ProductListPage />} />
+                        <Route path="/books" element={<BookListPage />} />
                         <Route
                             path="/products/:id"
                             element={<ProductDetailPage />}
