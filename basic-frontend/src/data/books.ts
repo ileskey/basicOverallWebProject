@@ -1,6 +1,6 @@
-import type { Product } from "../types";
+import type { Book } from "../types";
 
-export const products: Product[] = [
+export const products: Book[] = [
     {
         id: 1,
     },

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
-import ProductDetailPage from "./pages/ProductDetailPage";
-import ProductListPage from "./pages/ProductListPage";
+import BookDetailPage from "./pages/BookDetailPage";
+import BookListPage from "./pages/BookListPage";
 import NewsPage from "./pages/NewsPage";
 import Practice from "./pages/practice";
 import "./App.css";
@@ -42,7 +42,7 @@ function App() {
                         <Route path="/books" element={<BookListPage />} />
                         <Route
                             path="/products/:id"
-                            element={<ProductDetailPage />}
+                            element={<BookDetailPage />}
                         />
                         <Route path="/news" element={<NewsPage />} />
                         <Route
