@@ -16,8 +16,10 @@ create TABLE books (
 );
 create TABLE reviews (
 	id INT,
-    productId INT,
-    author varchar(255),
-    rating int,
-    comment varchar(1023)
+    book_id INT,
+    author VARCHAR(255),
+    rating INT,
+    comment TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
 );
