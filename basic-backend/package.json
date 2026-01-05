@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon --exec ts-node src/server.ts",
+        "dev": "tsx src/temp.ts",
         "build": "tsc",
-        "start": "node dist/server.js",
+        "start": "node dist/temp.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
@@ -19,8 +19,7 @@
         "express": "^5.2.1",
         "lodash": "^4.17.21",
         "mysql2": "^3.16.0",
-        "nodemon": "^3.1.11",
-        "ts-node": "^10.9.2",
+        "tsx": "^4.21.0",
         "typescript": "^5.9.3"
     },
     "type": "module",
