@@ -1,10 +1,8 @@
 import * as mysql from "mysql2/promise";
-//import "dotenv/config";
-//const { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE } = process.env;
 import dotenv from "dotenv";
 dotenv.config();
 
-let getEnvVar: (key: string) => string = (key) => {
+const getEnvVar: (key: string) => string = (key) => {
     const value = process.env[key];
     if (!value) {
         throw new Error(`환경 변수 ${key}가 설정되지 않았습니다.`);
@@ -14,9 +12,9 @@ let getEnvVar: (key: string) => string = (key) => {
 
 const pool = mysql.createPool({
     host: getEnvVar("DB_HOST"),
-    user: process.env.DB_USER as string,
-    password: process.env.DB_PASSWORD as string,
-    database: process.env.DB_NAME as string,
+    user: getEnvVar("DB_USER"),
+    password: getEnvVar("DB_PASSWORD"),
+    database: getEnvVar("DB_NAME"),
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
