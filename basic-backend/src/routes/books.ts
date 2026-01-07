@@ -7,6 +7,7 @@ const router = express.Router();
 
 interface BookRow extends RowDataPacket, Book {}
 
+// response whole book data
 router.get("/", async (req, res) => {
     try {
         const [rows] = await pool.query<BookRow[]>("SELECT * FROM books");
@@ -17,6 +18,8 @@ router.get("/", async (req, res) => {
     }
 });
 
+// URL example
+// http://localhost:5000/api/books/category/novel
 router.get("/category/:category", async (req, res) => {
     try {
         const { category } = req.params;
@@ -32,6 +35,8 @@ router.get("/category/:category", async (req, res) => {
     }
 });
 
+// URL example
+// http://localhost:5000/api/books/id
 router.get("/:id", async (req, res) => {
     console.log("id=");
     try {
@@ -48,9 +53,12 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.get("search/:keyword", async (req, res) => {
+// URL example
+// http://localhost:5000/api/books/search/keyword
+router.get("/search/:keyword", async (req, res) => {
     try {
         const { keyword } = req.params;
+        console.log(`keyword=${keyword}`);
         const [rows] = await pool.query<BookRow[]>(
             "SELECT * FROM books WHERE title LIKE ? OR author LIKE ?",
             [`%${keyword}%`, `%${keyword}%`]
