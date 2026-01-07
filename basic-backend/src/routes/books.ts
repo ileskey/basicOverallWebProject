@@ -22,7 +22,8 @@ router.get("/category/:category", async (req, res) => {
         const { category } = req.params;
         console.log(category);
         const [rows] = await pool.query<BookRow[]>(
-            `SELECT * FROM books WHERE category = ${category}`
+            "SELECT * FROM books WHERE category = ?",
+            [category]
         );
         res.json(rows);
     } catch (error) {
@@ -49,6 +50,12 @@ router.get("/:id", async (req, res) => {
 
 router.get("search/:keyword", async (req, res) => {
     try {
+        const { keyword } = req.params;
+        const [rows] = await pool.query<BookRow[]>(
+            "SELECT * FROM books WHERE title LIKE ? OR author LIKE ?",
+            [`%${keyword}%`, `%${keyword}%`]
+        );
+        res.json(rows);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Server Error" });
