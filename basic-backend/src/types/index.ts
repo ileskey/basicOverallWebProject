@@ -15,8 +15,9 @@ export interface Book {
 
 export interface Review {
     id: number;
-    productId: number;
+    book_id: number;
     author: string;
     rating: number;
     comment: string;
+    created_date: string;
 }
