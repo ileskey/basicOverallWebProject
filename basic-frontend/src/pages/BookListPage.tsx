@@ -1,33 +1,32 @@
-import { useState } from "react";
-import { books } from "../data/books";
+import { useState, useEffect } from "react";
+import { fetchBooks, fetchBookById, fetchBooksByCategory } from "../data/books";
 import BookCard from "../components/BookCard";
+import type { Book } from "../types";
+
 function BookListPage() {
-    const [selectedCategory, setSelectedCategory] = useState<string>("all");
+    const [books, setBooks] = useState<Book[]>();
+    const [loading, setLoading] = useState(true);
 
-    const filteredProducts =
-        selectedCategory === "all"
-            ? books
-            : books.filter((p) => p.category === selectedCategory);
-    return (
-        <div>
-            <h1>제품 목록</h1>
+    useEffect(() => {
+        fetchBooks()
+            .then((data) => setBooks(data))
+            .catch((err) => console.error(err))
+            .finally(() => setLoading(false));
+    }, []);
 
+    if (loading) return <p>로딩 중...</p>;
+
+    if (books)
+        return (
             <div>
-                <button onClick={() => setSelectedCategory("all")}>전체</button>
-                <button onClick={() => setSelectedCategory("laptop")}>
-                    노트북
-                </button>
-                <button onClick={() => setSelectedCategory("phone")}>
-                    스마트폰
-                </button>
+                <h1>제품 목록</h1>
+                <div>
+                    {books.map((book) => (
+                        <BookCard key={book.id} book={book} />
+                    ))}
+                </div>
             </div>
-            <div>
-                {filteredProducts.map((book) => (
-                    <BookCard key={book.id} book={book} />
-                ))}
-            </div>
-        </div>
-    );
+        );
 }
 
 export default BookListPage;
