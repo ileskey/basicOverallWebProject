@@ -1,7 +1,17 @@
 import type { Book } from "../types";
+const API_URL = "http://localhost:5000/api";
 
-export const products: Book[] = [
-    {
-        id: 1,
-    },
-];
+export const fetchBooks = async (): Promise<Book[]> => {
+    const response = await fetch(`${API_URL}/books`);
+    return response.json();
+};
+export const fetchBookById = async (id: number): Promise<Book[]> => {
+    const response = await fetch(`${API_URL}/books/${id}`);
+    return response.json();
+};
+export const fetchBooksByCategory = async (
+    category: string
+): Promise<Book[]> => {
+    const response = await fetch(`${API_URL}/books/category/${category}`);
+    return response.json();
+};
