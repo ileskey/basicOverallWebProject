@@ -5,7 +5,7 @@ function Header() {
         <header>
             <nav>
                 <Link to="/">홈</Link>
-                <Link to="/products">제품</Link>
+                <Link to="/books">제품</Link>
             </nav>
         </header>
     );

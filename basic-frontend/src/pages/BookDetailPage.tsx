@@ -1,9 +1,9 @@
-function ProductDetailPage() {
+function BookDetailPage() {
     return (
         <div>
-            <p>ProductDetail</p>
+            <p>BookDetail</p>
         </div>
     );
 }
 
-export default ProductDetailPage;
+export default BookDetailPage;
