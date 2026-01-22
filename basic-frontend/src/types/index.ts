@@ -20,3 +20,15 @@ export interface Review {
     rating: number;
     comment: string;
 }
+
+export interface ApiResponse<T> {
+    data: T;
+    status: number;
+    message?: string;
+}
+
+export interface ApiError {
+    status: number;
+    message: string;
+    code?: string;
+}
