@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
                 errorElement: <ErrorPage />,
             },
             {
-                path: "books/cagetory/:category",
+                path: "books/category/:category",
                 element: <BookListPage />,
                 loader: booksLoader,
                 errorElement: <ErrorPage />,
