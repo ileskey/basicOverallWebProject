@@ -1,14 +1,20 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
-
+import Footer from "./Footer";
 function Layout() {
     return (
         <div>
-            <Header />
-            <main>
-                <Outlet />
-            </main>
-            <footer>푸터 내용</footer>
+            <div style={{ position: "absolute", top: "0" }}>
+                <Header />
+            </div>
+            <div style={{ position: "relative" }}>
+                <main>
+                    <Outlet />
+                </main>
+            </div>
+            <div style={{ position: "relative", bottom: "0" }}>
+                <Footer />
+            </div>
         </div>
     );
 }

@@ -4,8 +4,12 @@ function Header() {
     return (
         <header>
             <nav>
-                <Link to="/">홈</Link>
-                <Link to="/books">제품</Link>
+                <button>
+                    <Link to="/">홈</Link>
+                </button>
+                <button>
+                    <Link to="/books">제품</Link>
+                </button>
             </nav>
         </header>
     );
