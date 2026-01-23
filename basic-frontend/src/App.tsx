@@ -10,7 +10,7 @@ import Practice from "./pages/practice";
 import { booksLoader } from "./loaders/booksLoader";
 import "./App.css";
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout />,
