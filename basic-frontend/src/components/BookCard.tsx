@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Book } from "../types";
+import styles from "./BookCard.module.css";
 
 interface BookCardProps {
     book: Book;
@@ -7,12 +8,17 @@ interface BookCardProps {
 
 function bookCard({ book }: BookCardProps) {
     return (
-        <div>
-            <img src={book.image} alt={book.title} width="150" height="200" />
-            <h3>{book.title}</h3>
-            <p>{book.price.toLocaleString()}원</p>
-            <Link to={`/books/${book.id}`}>상세보기</Link>
-        </div>
+        <Link to={`/books/${book.id}`} className={styles.card}>
+            <img
+                src={"http://localhost:5000/images/" + book.image + ".jpg"}
+                alt={book.title}
+                className={styles.image}
+            />
+            <h3 className={styles.title}>{book.title}</h3>
+            <p className={styles.author}>{book.author}</p>
+            <p className={styles.price}>{book.price.toLocaleString()}원</p>
+            <p className={styles.rating}>{book.rating}</p>
+        </Link>
     );
 }
 
