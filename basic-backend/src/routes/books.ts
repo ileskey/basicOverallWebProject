@@ -38,7 +38,6 @@ router.get("/category/:category", async (req, res) => {
 // URL example
 // http://localhost:5000/api/books/id
 router.get("/:id", async (req, res) => {
-    console.log("id=");
     try {
         const { id } = req.params;
         console.log(`id=${id}`);

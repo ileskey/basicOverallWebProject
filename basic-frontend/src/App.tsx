@@ -8,6 +8,7 @@ import NewsPage from "./pages/NewsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Practice from "./pages/practice";
 import { booksLoader } from "./loaders/booksLoader";
+import { bookLoader } from "./loaders/bookLoader";
 import "./App.css";
 
 const router = createBrowserRouter([
@@ -35,6 +36,8 @@ const router = createBrowserRouter([
             {
                 path: "books/:id",
                 element: <BookDetailPage />,
+                loader: bookLoader,
+                errorElement: <ErrorPage />,
             },
             {
                 path: "news",

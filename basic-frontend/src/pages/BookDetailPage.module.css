@@ -1,0 +1,103 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.imageSection {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.infoSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.author {
+    font-size: 20px;
+    color: #666;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: 700;
+    color: #007bff;
+}
+
+.rating {
+    font-size: 18px;
+    color: #f39c12;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.infoLabel {
+    font-weight: 600;
+    color: #666;
+}
+
+.infoValue {
+    color: #333;
+}
+
+.description {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    line-height: 1.6;
+    color: #555;
+}
+
+.backButton {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.backButton:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .imageSection {
+        position: static;
+    }
+}
