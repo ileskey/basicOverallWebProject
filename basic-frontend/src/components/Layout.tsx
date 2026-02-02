@@ -3,8 +3,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 function Layout() {
     return (
-        <div>
-            <div style={{ position: "absolute", top: "0" }}>
+        <div style={{ placeItems: "center" }}>
+            <div style={{ position: "fixed", top: "0" }}>
                 <Header />
             </div>
             <div style={{ position: "relative" }}>
