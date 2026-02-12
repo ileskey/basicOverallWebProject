@@ -7,12 +7,12 @@ function Layout() {
             <div style={{ position: "fixed", top: "0" }}>
                 <Header />
             </div>
-            <div style={{ position: "relative" }}>
+            <div style={{}}>
                 <main>
                     <Outlet />
                 </main>
             </div>
-            <div style={{ position: "relative", bottom: "0" }}>
+            <div style={{ position: "fixed", bottom: "0" }}>
                 <Footer />
             </div>
         </div>

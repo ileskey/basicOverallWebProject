@@ -15,10 +15,10 @@ create TABLE books (
     stock INT DEFAULT 10
 );
 create TABLE reviews (
-	id INT,
-    book_id INT,
-    author VARCHAR(255),
-    rating INT,
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    book_id INT NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    rating INT NOT NULL CHECK(rating >= 1 AND rating <= 5),
     comment TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
